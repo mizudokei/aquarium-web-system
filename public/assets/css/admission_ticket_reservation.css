@@ -1,0 +1,37 @@
+.grayed-out {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    pointer-events: none;
+}
+.highlighted {
+    background-color: #8BC34A; /* 緑色 */
+}
+.selected {
+    background-color: yellow; /* 黄色 */
+}
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.ticket-table th, .ticket-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.ticket-counter {
+    display: inline-flex;
+    align-items: center;
+}
+.ticket-counter button {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+.ticket-counter input {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+.summary_card {
+    background-color: #a0a0a0;
+}

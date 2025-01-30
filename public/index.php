@@ -10,7 +10,21 @@ session_start();
     <title>架空水族館｜トップページ</title>
 </head>
 <body>
-    <a href="../src/views/signup.php">新規会員登録</a>
-    <a href="../src/views/login.php">ログイン</a>
+    <header>
+        <?php
+            require_once 'header.php'; // 共通ヘッダーを読み込む
+        ?>
+    </header>
+
+    <main>
+        <h1>ようこそ、架空水族館へ！</h1>
+        <p>水族館の最新情報やサービスをご確認ください。</p>
+        
+        <div>
+            <h2>eチケットサービス</h2>
+            <a href="../src/views/ticket_overview.php">eチケット概要ページ</a>
+            <a href="../src/views/own_tickets.php">所持チケット一覧ページ</a>
+        </div>
+    </main>
 </body>
 </html>

@@ -10,6 +10,13 @@ session_start();
     <title>架空水族館｜ログインページ</title>
 </head>
 <body>
+
+    <header>
+        <?php
+            require_once '../../public/header.php';
+        ?>
+    </header>
+
     <h1>ログインフォーム</h1>
     <form action="../../src/controllers/process_login.php" method="POST">
         <label for="email">Email:</label>

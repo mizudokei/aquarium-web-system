@@ -14,7 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
+        // セッションにユーザーのメールアドレスとIDを格納
         $_SESSION['user'] = $user['email'];
+        $_SESSION['user_id'] = $user['id'];  // IDもセッションに格納
+        $_SESSION['user_birth'] = $user['birth'];  // IDもセッションに格納
         $_SESSION['message'] = 'Login successful!';
         header('Location: ../../public/index.php');
         exit;
