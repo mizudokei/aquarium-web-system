@@ -33,14 +33,24 @@ export const MonthSwitch: FC<{
       borderTop="1px solid #D1D1D1"
       borderBottom="1px solid #D1D1D1"
     >
-      <chakra.button onClick={showPreviousMonth} aria-label="前の月" disabled={currentMonth.isSame(minMonth, "month")}>
-        ＜
+      <chakra.button
+        onClick={showPreviousMonth}
+        aria-label="前の月"
+        isDisabled={currentMonth.isSame(minMonth, "month")}
+        opacity={currentMonth.isSame(minMonth, "month") ? 0.5 : 1}
+      >
+        <img src="assets/icons/arrow_left.svg" alt="" />
       </chakra.button>
       <chakra.p fontSize="14">
         {currentMonth.format("YYYY年M月")}
       </chakra.p>
-      <chakra.button onClick={showNextMonth} aria-label="次の月" disabled={currentMonth.isSame(maxMonth, "month")}>
-        ＞
+      <chakra.button
+        onClick={showNextMonth}
+        aria-label="次の月"
+        isDisabled={currentMonth.isSame(maxMonth, "month")}
+        opacity={currentMonth.isSame(maxMonth, "month") ? 0.5 : 1}
+      >
+        <img src="assets/icons/arrow_right.svg" alt="" />
       </chakra.button>
     </chakra.div>
   );

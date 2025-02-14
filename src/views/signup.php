@@ -1,7 +1,3 @@
-<?php
-// src/views/signup.php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +6,6 @@ session_start();
     <title>架空水族館｜新規会員登録ページ</title>
 </head>
 <body>
-
-    <header>
-        <?php
-            require_once '../../public/header.php';
-        ?>
-    </header>
-
     <h1>新規会員登録フォーム</h1>
     <form action="../../src/controllers/process_signup.php" method="POST">
         <label for="last_name">姓:</label>

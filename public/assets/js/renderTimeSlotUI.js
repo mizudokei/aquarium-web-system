@@ -4,64 +4,59 @@ import renderTicketTypes from './renderSelectTicketUI';
 let selectedTimeSlot;
 
 function renderTimeSlotOptions(selectedDate) {
-    $("#selected-date-info").show(); // チケット情報を表示
+	$("#time-slot-container").show(); // チケット情報を表示
 
-    selectedDate = dayjs(selectedDate).format('YYYY-MM-DD');
-    const timeSlotSelect = $("#time-slot");
-    timeSlotSelect.empty();
-    timeSlotSelect.prop('disabled', false);
+	selectedDate = dayjs(selectedDate).format('YYYY-MM-DD');
+	const timeSlotContainer = $("#time-slot-container");
+	timeSlotContainer.empty();
+	timeSlotContainer.prop('disabled', false);
 
-    // salesDays と workingHours を参照
-    const salesDay = salesDays.find(day => day.date === selectedDate);
-    if (!salesDay) return;
+	const salesDay = salesDays.find(day => day.date === selectedDate);
+	if (!salesDay) return;
 
-    const workingHour = workingHours.find(hour => hour.id == salesDay.working_hour_id);
-    if (!workingHour) return;
+	const workingHour = workingHours.find(hour => hour.id == salesDay.working_hour_id);
+	if (!workingHour) return;
 
-    const startTime = workingHour.start_time.split(":");
-    const endTime = workingHour.end_time.split(":");
-    const startHour = parseInt(startTime[0]);
-    const startMinute = parseInt(startTime[1]);
-    const endHour = parseInt(endTime[0]);
-    const endMinute = parseInt(endTime[1]);
+	const startTime = workingHour.start_time.split(":");
+	const endTime = workingHour.end_time.split(":");
+	const startHour = parseInt(startTime[0]);
+	const startMinute = parseInt(startTime[1]);
+	const endHour = parseInt(endTime[0]);
+	const endMinute = parseInt(endTime[1]);
 
-    let currentTime = startHour * 60 + startMinute;
-    const endTimeInMinutes = endHour * 60 + endMinute;
+	let currentTime = startHour * 60 + startMinute;
+	const endTimeInMinutes = endHour * 60 + endMinute;
 
-    // 現在の時刻を取得（分単位）
-    const now = dayjs();
-    const nowInMinutes = now.hour() * 60 + now.minute();
+	const now = dayjs();
+	const nowInMinutes = now.hour() * 60 + now.minute();
+	const isToday = dayjs().isSame(selectedDate, 'day');
 
-    // 当日かどうかのフラグ
-    const isToday = dayjs().isSame(selectedDate, 'day');
+	while (currentTime < endTimeInMinutes) {
+		if (!isToday || currentTime >= nowInMinutes) {
+			const hour = String(Math.floor(currentTime / 60)).padStart(2, "0");
+			const minute = String(currentTime % 60).padStart(2, "0");
+			const endHour = String(Math.floor((currentTime + 30) / 60)).padStart(2, "0");
+			const endMinute = String((currentTime + 30) % 60).padStart(2, "0");
+			const timeLabel = `${hour}:${minute}～${endHour}:${endMinute}`;
 
-    let timeSlots = [];
-    while (currentTime < endTimeInMinutes) {
-        // タイムスロットの開始時刻が現在時刻より後の場合のみ追加（当日の場合）
-        if (!isToday || currentTime >= nowInMinutes) {
-            const hour = String(Math.floor(currentTime / 60)).padStart(2, "0");
-            const minute = String(currentTime % 60).padStart(2, "0");
-            const timeLabel = `${hour}:${minute}～${String(Math.floor((currentTime + 30) / 60)).padStart(2, "0")}:${String((currentTime + 30) % 60).padStart(2, "0")}`;
-            timeSlots.push(timeLabel);
-        }
-        currentTime += 30;
-    }
+			const timeSlotDiv = $(`<div class='time-slot'><span>${timeLabel}</span></div>`);
+			timeSlotDiv.on("click", function () {
+				$(".time-slot").removeClass("selected");
+				$(this).addClass("selected");
+				selectedTimeSlot = timeLabel;
+				$("#selected-time").text(selectedTimeSlot);
+				
+				// 「チケット」タブを有効化して選択状態にする
+				$("#tab-ticket").removeClass("disabled").prop("disabled", false).trigger("click");
 
-    timeSlots.forEach(timeSlot => {
-        timeSlotSelect.append(new Option(timeSlot, timeSlot));
-    });
+				// チケット選択 UI を表示
+				renderTicketTypes();
+			});
+
+			timeSlotContainer.append(timeSlotDiv);
+		}
+		currentTime += 30;
+	}
 }
-
-$("#time-slot").on("change", function () {
-    // 選択された値の取得
-    selectedTimeSlot = $(this).val();
-
-    if (selectedTimeSlot) {
-        $("#selected-time").text(selectedTimeSlot);
-        renderTicketTypes(); // チケット種類の表示
-    } else {
-        $("#ticket-info").hide();
-    }
-});
 
 export default renderTimeSlotOptions;

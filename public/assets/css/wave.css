@@ -1,0 +1,28 @@
+.custom-shape-divider-bottom-1739284914 {
+  width: 100%;
+  margin-bottom: -1px;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1739284914 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 175px;
+}
+
+.custom-shape-divider-bottom-1739284914 .shape-fill {
+  fill: #2730d9;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-bottom-1739284914 svg {
+    width: calc(140% + 1.3px);
+    height: 100px;
+  }
+}
+
+/*# sourceMappingURL=wave.css.map */

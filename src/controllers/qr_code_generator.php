@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/phpqrcode/qrlib.php'; // PHP QR Code ライブラリをインクルード
-
+require_once __DIR__ . '/../libs/phpqrcode/qrlib.php';
+https://entry.hal.ac.jp/studentsregister
 /**
  * QRコードを生成し、指定ディレクトリに保存する関数
  *
@@ -10,7 +10,7 @@ require_once __DIR__ . '/phpqrcode/qrlib.php'; // PHP QR Code ライブラリを
  */
 function generateQRCode($reservationId, $ticketId) {
     // 保存ディレクトリ
-    $qrCodeDir = __DIR__ . '/../../public/assets/qr_codes/';
+    $qrCodeDir = __DIR__ . '/../../storage/qr_codes/';
     if (!is_dir($qrCodeDir)) {
         mkdir($qrCodeDir, 0755, true); // ディレクトリが存在しない場合は作成
     }
@@ -24,7 +24,7 @@ function generateQRCode($reservationId, $ticketId) {
 
     // QRコードを生成して保存
     QRcode::png($data, $filePath, QR_ECLEVEL_L, 4, 2); // (データ, ファイルパス, 誤り訂正レベル, サイズ, マージン)
-    $filePath = '/../../public/assets/qr_codes/' . $fileName;
+    $filePath = '/../../storage/qr_codes/' . $fileName;
     // Web相対パスを返す
     return $filePath; // 保存パスではなく、Webでアクセス可能な相対パスを返す
 }

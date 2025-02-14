@@ -1,0 +1,539 @@
+@font-face {
+    font-family: "Moon Light";
+    src: url(../fonts/Moon\ Light.otf);
+}
+
+.heading {
+    margin: 5%;
+
+    .container-heading {
+        font-family: Moon Light;
+        font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-align: center; // テキストを中央揃え
+        margin-bottom: 5px;
+    }
+    .container-heading-sub {
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-align: center; // テキストを中央揃え
+    }
+}
+
+#ticket-banner-container {
+	position: fixed;
+    width: 60%;
+    bottom: 20px;
+    right: 20px;
+	z-index: 2;
+	opacity: 0; /* 最初は非表示 */
+	transition: opacity 0.3s ease-in-out; /* フェードインアニメーション */
+
+    #ticket-banner {
+        width: 100%;
+    }
+}
+
+#ticket-banner-container.visible {
+	opacity: 1; /* クラスが追加されたら表示 */
+}
+
+#close-banner {
+	position: absolute;
+	top: 8px;
+	right: 3px;
+	background: rgba(0, 0, 0, 0.7);
+	color: white;
+	border: none;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+	font-size: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* ビデオのコンテナ */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        /* ビデオが枠にフィットするように調整 */
+    }
+
+    #logo-square {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+
+        /* ロゴがビデオより前面に表示 */
+        width: 150px;
+        color: white;
+    }
+}
+.scroll {
+    position: absolute;
+    top: calc(50% + 80px); /* ロゴの高さを考慮して適宜調整 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3em;
+    height: 3em;
+    z-index: 2; /* ロゴの下にならないようにする */
+
+    span {
+        width: 1.3em;
+        height: 1.3em;
+        position: absolute;
+        top: 25%;
+        left: 33%;
+        transform: translateY(0) rotate(-45deg);
+        border-left: 5px solid #f5f5f5;
+        border-bottom: 5px solid #f5f5f5;
+        z-index: 10;
+        animation: popping-arrow 2s infinite ease-out;
+    }
+
+    &:hover span {
+        transform: translateY(0.5em) rotate(-45deg);
+        animation: paused;
+    }
+}
+@keyframes popping-arrow {
+    0% {
+        transform: translateY(0) rotate(-45deg);
+    }
+    30% {
+        transform: translateY(0.5em) rotate(-45deg);
+    }
+    60% {
+        transform: translateY(0) rotate(-45deg);
+    }
+}
+
+#nav-info-container {
+    width: 100%;
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        width: 25%;
+        border: solid 1px #dcf2ff;
+        height: 10vh;
+        text-align: center;
+        display: flex; // flexboxに変更
+        flex-direction: column; // アイコンとテキストを縦方向に並べる
+        justify-content: center; // 垂直方向中央揃え
+        align-items: center; // 水平方向中央揃え
+        line-height: 20px;
+
+        .li-icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 8px; // アイコンとテキストの間にスペースを追加
+        }
+
+        .li-icon-heading {
+            font-size: 12px;
+            font-weight: 600;
+            color: #2730d9;
+        }
+    }
+}
+
+#time-info-container {
+    #sales-info-container {
+        display: flex;
+        margin: 5% auto;
+        width: 90%;
+        background-color: #dcf2ff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* 横方向の中央揃え */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 20px; /* パディングを追加して内容が窮屈にならないように */
+
+        #sales-info-heading {
+            color: #2730d9;
+            margin-bottom: 20%;
+
+            &::before {
+                background-image: url(../icons/clock.svg);
+            }
+        }
+
+        #active-time {
+            background-color: #fdfdfd;
+            width: 90%;
+            height: 60%; /* 高さを広げて、テキストのスペースを広げる */
+            text-align: center;
+            padding: 10px; /* 内側のスペースを確保 */
+
+            #sales-time {
+                font-family: "Oswald", serif;
+                font-size: 22px; /* フォントサイズを少し大きく */
+                color: #2730d9;
+                margin-bottom: 10px; /* 下に余白を追加 */
+            }
+
+            #sales-time-lead {
+                color: #2730d9;
+                font-size: 12px; /* フォントサイズを少し大きく */
+                background-color: #dcf2ff;
+                margin-top: 5px; /* 上に余白を追加 */
+                padding: 5px; /* 内側のスペースを追加 */
+                border-radius: 8px; /* 角を丸めて柔らかい印象に */
+            }
+        }
+
+        .sales-time-event-btn {
+            width: 90%;
+            color: #fdfdfd;
+            box-sizing: border-box;
+            text-align: center; // 文字を中央揃え
+            position: relative; // アイコン用の基準位置
+            border: none;
+            border-radius: 8px;
+
+            &::after {
+                content: "＞"; // アイコン（フォントアイコンや画像URLでも可）
+                font-size: 8px;
+                position: absolute;
+                right: 1rem; // 右端からの距離
+                top: 50%;
+                transform: translateY(-50%); // 縦中央揃え
+            }
+        }
+    }
+}
+
+#pickup-container {
+    width: 100vw; // ビューポート幅に制限
+    max-width: 100%; // 画面幅を超えない
+    overflow: hidden; // はみ出しを防ぐ
+    margin: 10% auto;
+}
+
+#news-container {
+    width: 100%;
+    margin: 5% auto;
+    margin-top: 10%;
+
+    .container-box {
+        width: 90%;
+        margin: 0 auto;
+
+        .news-list {
+            width: 80%;
+            list-style: none outside;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .news-list .item {
+            a {
+                display: flex;
+                align-items: center; // 横並びにし、中央揃え
+                text-decoration: none;
+                color: #333;
+                border-bottom: 1px solid #ccc;
+                padding: 20px;
+            }
+        }
+
+        .news-list .item:first-child {
+            a {
+                border-top: 1px solid #ccc;
+            }
+        }
+
+        .news-list .item .date {
+            margin: 0;
+            min-width: 140px;
+            font-family: "Oswald", serif;
+            font-size: 16px;
+            color: #999;
+        }
+
+        .news-list .item .category {
+            margin: 0;
+            min-width: 140px;
+            padding-right: 20px;
+        }
+
+        .news-list .item .category span {
+            background: #1b53d2;
+            color: #fff;
+            text-align: center;
+            display: inline-block;
+            padding: 5px 20px;
+            font-size: 12px;
+            line-height: 1;
+        }
+
+        .news-list .item .title {
+            margin: 0;
+            width: 100%;
+        }
+
+        .news-list .item a:hover .title {
+            color: #00f;
+        }
+
+        /* 新しく追加した画像のスタイル */
+        .news-list .item .image {
+            width: 73.6px;
+            height: 73.6px; // 画像の高さを設定（調整可能）
+            margin-top: 10px;
+            margin-right: 25px; // 日付との間にスペースを追加
+            display: inline-block;
+        }
+
+        .news-transition-btn {
+            width: 80%;
+            color: #fdfdfd;
+            box-sizing: border-box;
+            text-align: center; // 文字を中央揃え
+            position: relative; // アイコン用の基準位置
+            border: none;
+            border-radius: 8px;
+            display: block; // ブロック要素にすることで中央配置が可能
+            margin: 5% auto; // 上部の間隔を確保 & 中央配置
+
+            &::after {
+                content: "＞"; // アイコン（フォントアイコンや画像URLでも可）
+                font-size: 8px;
+                position: absolute;
+                right: 1rem; // 右端からの距離
+                top: 50%;
+                transform: translateY(-50%); // 縦中央揃え
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .news-list .item a {
+                flex-wrap: wrap;
+            }
+
+            .news-list .item .date {
+                min-width: 100px;
+            }
+
+            .news-list .item .title {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    /* 装飾 */
+    * {
+        box-sizing: border-box;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    body {
+        margin: 20px;
+    }
+}
+
+#model-course-container {
+    width: 100%;
+    margin: 5% auto;
+    margin-top: 20%;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    li {
+        width: 90%; // 各ボックスの幅
+        margin: 5% auto;
+    }
+
+    .model-course-transition {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 150px;
+        display: block;
+        border-radius: 10px;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); // 透明度30%の黒
+            border-radius: 10px; // aタグの角丸と合わせる
+        }
+    }
+
+    .model-course-transition p {
+        display: flex;
+        flex-direction: column; // 文字とアイコンを縦並びにする
+        justify-content: center; // 横中央揃え
+        align-items: center; // 縦中央揃え
+        height: 100%;
+        margin: 0;
+        position: relative;
+        top: 15%;
+    }
+
+    .model-course-transition p span {
+        font-size: 14px; // 必要に応じてサイズ変更
+        color: #fff;
+        position: relative;
+    }
+
+    .model-course-transition p span::before {
+        content: ""; // アイコン用のテキストなし
+        background-size: contain; // 画像を要素内に収める
+        background-repeat: no-repeat;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: -50px; // アイコンの位置調整（spanの上に表示）
+        left: 50%;
+        transform: translateX(-50%); // 横中央揃え
+    }
+
+    #alone {
+        background-image: url(../images/alone.jpg);
+    }
+    #alone span::before {
+        background-image: url(../icons/alone.svg);
+    }
+
+    #couple {
+        background-image: url(../images/couple.jpg);
+    }
+    #couple span::before {
+        background-image: url(../icons/couple.svg);
+    }
+
+    #family {
+        background-image: url(../images/family.jpg);
+    }
+    #family span::before {
+        background-image: url(../icons/family.svg);
+    }
+
+    .model-course-transition p span::after {
+        content: ""; // 矢印アイコンのための空コンテンツ
+        background-image: url(../icons/arrow_right_white.svg); // 矢印の画像を指定
+        background-size: contain; // 画像を要素内に収める
+        background-repeat: no-repeat;
+        width: 14px; // 矢印のサイズ調整
+        height: 14px; // 矢印のサイズ調整
+        position: absolute;
+        top: 50%; // 矢印を文字の中央に配置
+        left: 100%; // 文字の右側に配置
+        transform: translateY(-50%); // 縦中央揃え
+        margin-left: 8px; // 矢印と文字の間にスペースを追加
+    }
+}
+
+#facility-info-container {
+    width: 100%;
+    margin: 5% auto;
+    margin-top: 20%;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    li {
+        width: 90%; /* 各ボックスの幅 */
+        margin: 5% auto;
+    }
+
+    .facility-info-transition {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 348.6px;
+        display: flex;
+        justify-content: center; /* 横方向中央 */
+        align-items: center; /* 縦方向中央 */
+        border-radius: 10px;
+        position: relative;
+    }
+    #facility-info-bg-01 {
+        background-image: url(../images/suisou.jpg);
+    }
+    #facility-info-bg-02 {
+        background-image: url(../images/pengin.jpg);
+    }
+    #facility-info-bg-03 {
+        background-image: url(../images/deepsea.jpg);
+    }
+    #facility-info-bg-04 {
+        background-image: url(../images/jellyfish.jpg);
+    }
+    #facility-info-bg-05 {
+        background-image: url(../images/sango.jpg);
+    }
+    #facility-info-bg-06 {
+        background-image: url(../images/pool.jpg);
+    }
+
+    .facility-info-transition::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3); /* 透明度30%の黒 */
+        border-radius: 10px; /* aタグの角丸と合わせる */
+        z-index: 0; /* 背面に配置 */
+    }
+
+    .facility-info-description {
+        text-align: center; /* テキスト中央揃え */
+        color: white; /* 必要に応じて */
+        position: relative; /* テキストを上に持ってくる */
+        width: 80%;
+        
+        p{
+            line-height: 25px;
+        }
+
+        h2 {
+            width: 100%;
+            font-size: 24px;
+            margin: 10% auto;
+        }
+    }
+}

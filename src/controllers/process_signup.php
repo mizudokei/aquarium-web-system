@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../../config/db_connect.php';
+require_once '../models/db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lastName = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);

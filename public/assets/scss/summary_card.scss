@@ -1,0 +1,47 @@
+.summary-card {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    #summary-card-datetime,
+    #summary-card-tickets {
+        display: flex;
+
+        p {
+            margin-right: 20px;
+
+            #total-quantity,
+            #total-price {
+                font-size: 24px;
+                font-weight: bold;
+                color: #e60012;
+            }
+        }
+    }
+
+    hr {
+        margin: 10px auto;
+    }
+
+    #confirm-reservation {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        background-color: #2730d9;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+}
+
+#selected-date {
+    margin-right: 5px;
+}

@@ -1,0 +1,25 @@
+* {
+    font-family: "Noto Sans JP", serif;
+    font-optical-sizing: auto;
+}
+
+a {
+	cursor: pointer;
+}
+
+.icon-heading {
+	width: 100%;
+	margin: 5% auto;
+	display: block;
+	display: flex;
+	align-items: center;           /* 子要素（疑似要素とテキスト）を垂直方向中央揃え */
+	justify-content: center;       /* 水平方向中央揃え（必要なら） */
+	gap: 12px;                     /* アイコンとテキストの間隔 */
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
+
+
+

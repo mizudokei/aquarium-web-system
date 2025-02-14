@@ -1,0 +1,95 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
+
+.form-group {
+  position: relative;
+}
+
+.name-group {
+  display: flex;
+  gap: 10px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  padding-top: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  background-color: transparent;
+}
+.form-input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+.form-input:focus + .form-label, .form-input:valid + .form-label, .form-input:not(:placeholder-shown) + .form-label {
+  top: -12px;
+  font-size: 12px;
+  color: #007BFF;
+}
+
+.form-label {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  font-size: 16px;
+  color: #aaa;
+  background-color: #fdfdfd;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  padding-top: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  background-color: transparent;
+}
+.form-input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+.form-input:not(:placeholder-shown) {
+  border-color: #007BFF;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: inherit !important;
+  border-color: #007BFF !important;
+}
+
+/*# sourceMappingURL=receive_ticket.css.map */

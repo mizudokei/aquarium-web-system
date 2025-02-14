@@ -1,0 +1,76 @@
+.step-container {
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	background-size: cover;
+}
+
+.step-indicator {
+	width: 60px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.progress-circle {
+	width: 15%;
+	height: 15%;
+	transform: rotate(-90deg); /* 回転で開始位置を調整 */
+}
+
+.bg-circle {
+	fill: none;
+	stroke: #ddd;
+	stroke-width: 3;
+	stroke-linecap: round;
+	cx: 50%;
+	cy: 50%;
+	r: 16;
+}
+
+.progress-bar {
+	fill: none;
+	stroke: #005bb5;
+	stroke-width: 3;
+	stroke-linecap: round;
+	stroke-dasharray: calc(2 * 3.14 * 16); /* 円周を計算 */
+	stroke-dashoffset: calc(2 * 3.14 * 16 * 0.75); /* 1/4の進捗 */
+	transition: stroke-dashoffset 0.3s ease-in-out;
+}
+
+#step-three {
+	stroke-dashoffset: calc(2 * 3.14 * 16 * 0.25); /* 1/4の進捗 */
+}
+
+#step-final {
+	stroke-dashoffset: calc(2 * 3.14 * 16 * 0); /* 1/4の進捗 */
+}
+
+.step-text {
+	display: flex;
+	align-items: center;
+}
+
+.step-text .current-step {
+	color: #005bb5;
+	font-size: 20px;
+	font-weight: bold;
+	margin-right: 2px;
+}
+
+.step-text .all-steps {
+	color: #b2b2b2;
+	font-size: 14px;
+	margin-right: 2px;
+}
+
+.step-title {
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+	margin-left: 12px;
+}

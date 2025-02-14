@@ -1,0 +1,22 @@
+.wave {
+  width: 100%;
+  position: absolute;
+  margin-top: -10.3%;
+}
+
+.fluid {
+	background: url("../images/jellyfish.jpg") no-repeat center center;
+	background-size: cover;
+	width: 30vh;
+	height: 30vh;
+	animation: fluid-animation 10s ease 0s infinite normal;
+}
+
+@keyframes fluid-animation {
+  0%, 100% {
+      border-radius: 59% 41% 21% 79% / 62% 53% 47% 38%;
+  }
+  50% {
+      border-radius: 26% 74% 52% 48% / 52% 32% 68% 48%;
+  }
+}

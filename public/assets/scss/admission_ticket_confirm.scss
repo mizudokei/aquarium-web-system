@@ -1,0 +1,71 @@
+// 色設定
+$primary-color: #0078D4;
+$text-color: #333;
+$border-color: #D1D1D1;
+$bg-light: #F9F9F9;
+
+#order-summary {
+	background: $bg-light;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 上側に軽いシャドウを追加 */
+	padding: 15px;
+	border-radius: 5px;
+
+	.order-div {
+		margin-bottom: 50px;
+	}
+
+	.order-info {
+        margin: 5%;
+        display: flex;
+        justify-content: space-between;
+		font-size: 14px;
+        font-weight: bold;
+        
+		span {
+            font-weight: normal;
+		}
+	}
+
+	.order-detail {
+		text-align: center;
+		font-size: 20px;
+	}
+
+	#ticket-table {
+		width: 90%;
+		margin-left: 10px;
+
+		#ticket-type {
+			width: 150px;
+			text-align: center;
+		}
+
+		#ticket-price {
+			width: 50px;
+			text-align: right;
+		}
+
+		#ticket-quantity {
+			text-align: right;
+			width: 50px;
+		}
+
+		th, td {
+			border-style: none;
+			padding: 8px;
+		}
+
+		th {
+			background: $primary-color;
+			color: white;
+		}
+	}
+}
+
+#confirm-button {
+	color: #fdfdfd;
+	width: 90%;
+	margin: 0 auto;  /* 左右のマージンを自動に設定 */
+	margin-bottom: 10%;
+    display: block;  /* ブロック要素にして中央寄せ */
+}

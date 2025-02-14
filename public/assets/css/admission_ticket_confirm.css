@@ -1,0 +1,58 @@
+@charset "UTF-8";
+#order-summary {
+  background: #F9F9F9;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 上側に軽いシャドウを追加 */
+  padding: 15px;
+  border-radius: 5px;
+}
+#order-summary .order-div {
+  margin-bottom: 50px;
+}
+#order-summary .order-info {
+  margin: 5%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: bold;
+}
+#order-summary .order-info span {
+  font-weight: normal;
+}
+#order-summary .order-detail {
+  text-align: center;
+  font-size: 20px;
+}
+#order-summary #ticket-table {
+  width: 90%;
+  margin-left: 10px;
+}
+#order-summary #ticket-table #ticket-type {
+  width: 150px;
+  text-align: center;
+}
+#order-summary #ticket-table #ticket-price {
+  width: 50px;
+  text-align: right;
+}
+#order-summary #ticket-table #ticket-quantity {
+  text-align: right;
+  width: 50px;
+}
+#order-summary #ticket-table th, #order-summary #ticket-table td {
+  border-style: none;
+  padding: 8px;
+}
+#order-summary #ticket-table th {
+  background: #0078D4;
+  color: white;
+}
+
+#confirm-button {
+  color: #fdfdfd;
+  width: 90%;
+  margin: 0 auto; /* 左右のマージンを自動に設定 */
+  margin-bottom: 10%;
+  display: block; /* ブロック要素にして中央寄せ */
+}
+
+/*# sourceMappingURL=admission_ticket_confirm.css.map */

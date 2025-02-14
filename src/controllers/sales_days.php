@@ -2,7 +2,7 @@
 // sales_days.php
 
 // データベース接続の設定や営業日取得ロジック
-include '../../config/db_connect.php';
+include(__DIR__ . '../../models/db_connect.php');
 
 header('Content-Type: application/json');
 

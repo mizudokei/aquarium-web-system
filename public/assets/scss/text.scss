@@ -1,0 +1,6 @@
+.text-gra {
+	background: linear-gradient(to right, #1b53d2 0%, #2fe2ff 100%);
+	background-clip: text; /* 標準プロパティ */
+	-webkit-background-clip: text; /* ベンダープレフィックス */
+	-webkit-text-fill-color: transparent; /* 文字の塗りつぶしを透明に */
+}

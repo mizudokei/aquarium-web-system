@@ -1,0 +1,110 @@
+// フォーム全体のスタイル
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	background-color: #fdfdfd;
+}
+
+// フォームのグループ（ラベルと入力フィールド）
+.form-group {
+	position: relative;
+}
+
+// 横並びにするためのスタイル
+.name-group {
+	display: flex;
+	gap: 10px; // 姓と名の間のスペース
+}
+
+// 入力フィールドのスタイル
+.form-input {
+	width: 100%;
+	padding: 12px;
+	padding-top: 18px; // ラベルが重ならないように調整
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	box-sizing: border-box;
+	transition: border-color 0.3s ease;
+	background-color: transparent;
+
+	&:focus {
+		border-color: #007BFF;
+		outline: none;
+	}
+
+	&:focus + .form-label,
+	&:valid + .form-label,
+	&:not(:placeholder-shown) + .form-label {
+		top: -12px;
+		font-size: 12px;
+		color: #007BFF;
+	}
+}
+
+// ラベルのスタイル
+.form-label {
+	position: absolute;
+	top: 14px; // 初期位置を上寄せに調整
+	left: 12px;
+	font-size: 16px;
+	color: #aaa;
+	background-color: #fdfdfd;
+	padding: 0 5px;
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
+
+// ボタンのスタイル
+.submit-btn {
+	padding: 10px 20px;
+	background-color: #007BFF;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+	text-align: center;
+
+	&:hover {
+		background-color: #0056b3;
+	}
+}
+
+// 入力フィールドのスタイル
+.form-input {
+	width: 100%;
+	padding: 12px;
+	padding-top: 18px; // ラベルが重ならないように調整
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	box-sizing: border-box;
+	transition: border-color 0.3s ease;
+	background-color: transparent; // 背景色を透明にする
+
+	// フォーカス時
+	&:focus {
+		border-color: #007BFF;
+		outline: none;
+	}
+
+	// すでに入力されている場合も枠線を青にする
+	&:not(:placeholder-shown) {
+		border-color: #007BFF;
+	}
+}
+
+// オートフィルの影響をなくし、枠線の色を固定する
+input:-webkit-autofill {
+	box-shadow: 0 0 0px 1000px white inset !important; // 背景色を白に固定
+	-webkit-text-fill-color: inherit !important; // 文字色をデフォルトにする
+	border-color: #007BFF !important; // 枠線を青に維持
+}

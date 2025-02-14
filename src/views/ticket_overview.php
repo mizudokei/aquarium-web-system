@@ -1,7 +1,3 @@
-<?php
-// src/views/ticket_overview.php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +6,6 @@ session_start();
     <title>架空水族館｜eチケット概要</title>
 </head>
 <body>
-    
-    <header>
-        <?php
-            require_once '../../public/header.php';
-        ?>
-    </header>
-
     <main>
         <h1>eチケット概要ページ</h1>
         <p>ご希望のチケットを選択してください。</p>
@@ -29,7 +18,7 @@ session_start();
             <h2>入館用チケット</h2>
             <?php if (isset($_SESSION['user'])): ?>
                 <!-- ログイン済みで遷移可能 -->
-                <a href="admission_ticket_reservation.php">入館用チケット予約</a>
+                <a href="/?page=admission_ticket_reservation">入館用チケット予約</a>
             <?php else: ?>
                 <!-- ログインしていない場合はグレーアウト -->
                 <a href="#" style="color: gray; pointer-events: none; text-decoration: none;">入館用チケット予約</a>

@@ -35,7 +35,7 @@ export const CalendarCells: FC<{
 	useEffect(() => {
 		(async () => {
 			try {
-				const response = await axios.get("/src/controllers/sales_days.php");
+				const response = await axios.get("/?process=sales_days");
 				setOperationalDays(response.data);
 			} catch (error) {
 				console.error("営業日の取得に失敗しました：", error);
@@ -148,7 +148,7 @@ export const CalendarCells: FC<{
 											try {
 											const selectedDate = `${year}-${month}-${day}`;
 											// PHPに選択された日付を送信
-											await axios.post("/src/views/admission_ticket_reservation.php", 
+											await axios.post("/?page=admission_ticket_reservation", 
 												new URLSearchParams({ selectedDate }),
 												{ headers: { 'Content-Type': 'application/x-www-form-urlencoded' }}
 											);
@@ -184,7 +184,7 @@ export const CalendarCells: FC<{
 												left="50%"
 												transform="translateX(-50%)"
 											>
-												<img src="../../../public/Vector.svg" alt="" />
+												<img src="/assets/icons/reservable.svg" alt="" />
 											</chakra.span>
 										)}
 									</chakra.button>
@@ -213,7 +213,7 @@ const WeekDayCell = chakra("th", {
 
 const DateCell = chakra("td", {
 	baseStyle: {
-		height: "90px",
+		height: "80px",
 		width: "100%",
 		margin: "0 -1px -1px 0",
 		fontSize: "14px",

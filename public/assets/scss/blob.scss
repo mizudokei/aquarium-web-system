@@ -1,0 +1,13 @@
+.fluid {
+    background-image: url(../images/jellyfish.jpg);
+    animation: fluid-animation 10s ease 0s infinite normal;
+}
+
+@keyframes fluid-animation {
+    0%, 100% {
+        border-radius: 59% 41% 21% 79% / 62% 53% 47% 38%;
+    }
+    50% {
+        border-radius: 26% 74% 52% 48% / 52% 32% 68% 48%;
+    }
+}

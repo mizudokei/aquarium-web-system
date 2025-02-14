@@ -1,0 +1,118 @@
+a.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 100%;
+    height: 8vh;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    background-color: #fdfdfd;
+    border-radius: 100vh;
+    color: #2730d9;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
+.btn-gra {
+    background-image: linear-gradient(to right, #2730d9 0%, #2129b8 100%);
+}
+
+a.btn_gradation {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 100%;
+    height: 8vh;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #2730d9 0%, #2129b8 100%);
+    border-radius: 100vh;
+    color: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 1rem 1rem;
+    margin: 5% auto;
+    border-radius: 8px;
+    text-align: center;
+    display: block;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5% auto;
+    gap: 20px; /* ボタン間の間隔 */
+}
+
+/* ボタンのスタイル */
+.btn-flat-blue {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* アイコンとテキストを縦並びに */
+    justify-content: center;
+    align-items: center;
+    width: 30%; /* 正方形にするため、高さと幅を合わせる */
+    height: 10vh;
+    padding: 0;
+    background-color: #2730d9;
+    border-radius: 8px;
+    color: #fdfdfd;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    font-size: 12px;
+}
+
+/* SVGアイコンを追加 */
+.btn-flat-blue::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    margin-bottom: 5px;
+}
+
+.share-ticket::before {
+    background: url("../icons/share_ticket.svg") no-repeat center center;
+}
+.bind-users-ticket::before {
+    background: url("../icons/bind_users_ticket.svg") no-repeat center center;
+}
+
+.icon-heading::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("../icons/tickets_color.svg") no-repeat center center;
+    background-size: contain;
+    /* ここで微調整。お好みで margin-top か transform で上下位置を調整してください */
+    margin-top: 2px; /* 例: アイコンを少し上に移動 */
+    /* もしくは代わりに以下のように transform を使用することも可能です */
+    /* transform: translateY(-2px); */
+}
+.btn_icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0; /* アイコンのサイズを固定 */
+}
+span.txt {
+    display: inline-block;
+    font-size: 13px;
+    flex-grow: 1; /* テキストの幅を均等に確保 */
+    text-align: center; /* 中央揃え */
+}

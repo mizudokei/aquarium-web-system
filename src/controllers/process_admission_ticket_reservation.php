@@ -1,7 +1,6 @@
 <?php
-session_start();
-require_once '../../config/db_connect.php';
-require_once '../../src/controllers/qr_code_generator.php'; // QRコード生成用の関数
+include(__DIR__ . '../../models/db_connect.php');
+require_once 'qr_code_generator.php'; // QRコード生成用の関数
 
 // セッションからデータを取得
 $selectedDate = $_SESSION['selectedDate'];
@@ -91,7 +90,7 @@ try {
     $pdo->commit();
 
     // 予約完了後、完了画面へリダイレクト
-    header('Location: ../../src/views/finalize_reservation.php');
+    header('Location: /?page=finalize_reservation');
     exit;
 
 } catch (PDOException $e) {

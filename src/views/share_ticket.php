@@ -1,6 +1,5 @@
 <?php
-session_start();
-require_once '../../config/db_connect.php';
+require_once __DIR__ . '../../models/db_connect.php';
 
 // ユーザーIDをセッションから取得
 $user_id = $_SESSION['user_id'];
@@ -44,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ticket_id'])) {
     ]);
 
     // 分配URLを生成
-    $share_url = "http://localhost:3000/src/views/receive_ticket.php?token=" . urlencode($token);
+    $share_url = "http://localhost:3000/?page=receive_ticket&token=" . urlencode($token);
 }
 ?>
 
@@ -55,10 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ticket_id'])) {
     <title>チケット分配</title>
 </head>
 <body>
-    <header>
-        <?php require_once '../../public/header.php'; ?>
-    </header>
-
     <h1>チケット分配</h1>
     
     <?php if (isset($share_url)): ?>

@@ -4,7 +4,7 @@ import { getTicketQuantities } from './renderSelectTicketUI.js';
 $(document).ready(function() {    
     $("#confirm-reservation").on("click", function () {
         const ticketQuantities = getTicketQuantities();
-        console.log(ticketQuantities);
+
 
         // 必要なデータをセッションに保存
         const selectedDate = $("#selected-date").text();
@@ -13,7 +13,7 @@ $(document).ready(function() {
         // フォーム送信
         $.ajax({
             type: "POST",
-            url: "../../../src/controllers/set_session.php", // セッションにデータを保存するPHPファイル
+            url: "/?process=set_session", // セッションにデータを保存するPHPファイル
             data: {
                 selectedDate: selectedDate,
                 selectedTimeSlot: selectedTimeSlot,

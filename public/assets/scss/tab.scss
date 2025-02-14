@@ -1,0 +1,40 @@
+.tab-menu {
+	display: flex;
+	position: relative; /* タブの配置を制御 */
+	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 上側に軽いシャドウを追加 */
+}
+
+.tab {
+	width: 33.3%;
+	padding: 10px 20px;
+	cursor: pointer;
+	border: 1px solid #ddd;
+	border-bottom: none; /* コンテンツとつながる部分を消す */
+	background: #f9f9f9;
+	text-align: center;
+}
+
+.tab.active {
+	background: white;
+	font-weight: bold;
+	position: relative;
+	z-index: 2; /* タブを前面に */
+	border-bottom: 1px solid white; /* コンテンツとつながる部分をなじませる */
+}
+
+.tab.disabled {
+	color: #bbb;
+	pointer-events: none;
+}
+
+.tab-content {
+	display: none;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-top: none; /* 初期状態では消す */
+}
+
+.tab-content.active {
+	display: block;
+	border-top: 1px solid white; /* 選択中のタブと揃える */
+}

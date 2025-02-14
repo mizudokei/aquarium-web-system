@@ -1,0 +1,94 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        position: relative;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px; // 上部に余白を確保
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        p {
+            margin: 3% 0;
+            font-size: 16px;
+        }
+
+        #modal-type {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 15px; // 余白を追加
+        }
+
+        #modal-qr {
+            display: block;
+            margin: 20px auto;
+            max-width: 90%;
+            height: auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+            background: #f9f9f9;
+        }
+
+        #modal-datetime {
+            display: flex;
+            gap: 10px; // 日付と時間帯の間隔を確保
+            white-space: nowrap; // 改行を防ぐ
+        }
+
+        #modal-ticket-id-p {
+            color: #ccc;
+        }
+
+        #modal-ticket-id {
+            color: #ccc;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .save-button {
+            display: block;
+            width: 80%;
+            padding: 12px;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            background-color: #2730d9;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    }
+}

@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = {
 	entry: "./src/main.tsx", // エントリーポイント
 	output: {
-	path: path.resolve(__dirname, "dist"), // 出力先
+	path: path.resolve(__dirname, "public/dist"), // 出力先
 	filename: "bundle.js" // 出力ファイル名
 	},
 	resolve: {

@@ -1,5 +1,5 @@
 <?php
-require_once('../../config/db_connect.php');
+require_once('../models/db_connect.php');
 
 // POSTデータを受け取る
 $date = $_POST['date'];
