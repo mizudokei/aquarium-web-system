@@ -51,13 +51,11 @@ $reservation_timeslot = $result['reservation_timeslot'];
 $timeslot_parts = explode('～', $reservation_timeslot);
 $reservation_start_time = trim($timeslot_parts[0]);
 
-// 固定日時として「2025-02-26 09:00」を設定
-$fixed_time = new DateTime('2025-02-26 09:00');
-
-// 予約日時と固定日時を比較
+// 予約日時と現在の日時を比較
+$current_time = new DateTime();
 $reservation_time = new DateTime($result['reservation_date'] . ' ' . $reservation_start_time);
 
-if ($fixed_time < $reservation_time) {
+if ($current_time < $reservation_time) {
     echo json_encode(['success' => false, 'message' => 'まだ入場可能な時間ではありません']);
     exit;
 }
@@ -65,7 +63,7 @@ if ($fixed_time < $reservation_time) {
 $reservation_end_time = clone $reservation_time;
 $reservation_end_time->add(new DateInterval('PT30M')); // 30分間の予約時間を設定
 
-if ($fixed_time > $reservation_end_time) {
+if ($current_time > $reservation_end_time) {
     echo json_encode(['success' => false, 'message' => '予約時間を過ぎています']);
     exit;
 }

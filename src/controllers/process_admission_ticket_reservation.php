@@ -34,7 +34,7 @@ try {
 
     // 予約情報を `reservations` テーブルに追加
     $query = "INSERT INTO reservations (id, user_id, reservation_date, reservation_timeslot, total_price, status)
-              VALUES (:id, :user_id, :reservation_date, :reservation_timeslot, :total_price, 'reserved')";
+                VALUES (:id, :user_id, :reservation_date, :reservation_timeslot, :total_price, 'reserved')";
     $stmt = $pdo->prepare($query);
     
     // 挿入処理

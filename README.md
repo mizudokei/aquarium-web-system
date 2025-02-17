@@ -3,34 +3,28 @@
 ## ディレクトリ構成
 root/
 　├ config/
-　│　└ /db_connect.php
-　├ dist/
-　│　├ bundle.js
-　│　├ bundle.js.LICENSE.txt
-　│　└ bundle.js.map
 　├ node_modules/
 　├ public/
-　│　├ admin/
-　│　│  ├ dashboard.php
-　│　│  └ administrator_login.php
 　│　├ assets/
 　│　│  ├ css/
+　│　│  ├ fonts/
+　│　│  ├ icons/
 　│　│  ├ images/
 　│　│  ├ js/
-　│　│  └ qr_codes
-　│　├ header.php
-　│　├ index.php
-　│　├ Vector.svg
-　│　└ vite.svg
+　│　│  ├ scss/
+　│　│  └ videos
+　│　└ index.php
 　├ src/
 　│　├ Calendar/
 　│　├ controllers/
+　│　├ libs/
 　│　├ models/
 　│　├ views/
+　│　│  └ layouts/
 　│　├ main.tsx
 　│　└ vite-env.d.ts
-　├ .gitgnore
-　├ db.sql
+　├ storage/
+　├ .gitignore
 　├ package-lock.json
 　├ package.json
 　├ README.md
@@ -38,3 +32,4 @@ root/
 　├ tsconfig.node.json
 　├ vite.config.ts
 　└ webpack.config.cjs
+

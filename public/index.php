@@ -8,38 +8,38 @@ $process = $_GET['process'] ?? '';
 
 // 許可されたページリスト
 $allowed_pages = [
-	'home',
-	'ticket_overview',
-	'own_tickets',
-	'login',
-	'signup',
-	'admission_ticket_confirm',
-	'admission_ticket_reservation',
-	'finalize_reservation',
-	'receive_ticket',
-	'share_ticket',
+    'home',
+    'ticket_overview',
+    'own_tickets',
+    'login',
+    'signup',
+    'admission_ticket_confirm',
+    'admission_ticket_reservation',
+    'finalize_reservation',
+    'receive_ticket',
+    'share_ticket',
     'scan_qr'
 ];
 
 $allowed_processes = [
-	'process_login',
-	'process_signup',
-	'logout',
-	'sales_days',
-	'set_session',
-	'process_admission_ticket_reservation',
-	'qr_code_generator',
-	'generete_share_url',
-	'bind_users',
+    'process_login',
+    'process_signup',
+    'logout',
+    'sales_days',
+    'set_session',
+    'process_admission_ticket_reservation',
+    'qr_code_generator',
+    'generete_share_url',
+    'bind_users',
     'verify_qr'
 ];
 
 if (!in_array($page, $allowed_pages)) {
-	$page = 'home';
+    $page = 'home';
 }
 
 if (!in_array($process, $allowed_processes)) {
-	$process = '';  // 無効な場合は処理しない
+    $process = '';  // 無効な場合は処理しない
 }
 
 $view_path = __DIR__ . "/../src/views/{$page}.php";
@@ -47,26 +47,26 @@ $controller_path = __DIR__ . "/../src/controllers/{$process}.php";
 
 // ファイルが存在しない場合は 404 エラーメッセージを表示
 if (!file_exists($view_path)) {
-	die("Error: The requested page '{$page}' was not found. Expected path: {$view_path}");
+    die("Error: The requested page '{$page}' was not found. Expected path: {$view_path}");
 }
 
 // コントローラーが存在する場合に実行
 if ($process && file_exists($controller_path)) {
-	require_once $controller_path;
+    require_once $controller_path;
 }
 
 // ページ名を日本語にマッピング
 $page_titles = [
-	'home' => 'トップページ',
-	'ticket_overview' => 'eチケット概要',
-	'own_tickets' => '所持チケット一覧',
-	'login' => 'ログイン',
-	'signup' => '会員登録',
-	'admission_ticket_reservation' => '入場チケット予約',
-	'admission_ticket_confirm' => '入場チケット予約内容確認',
-	'finalize_reservation' => '入場チケット予約完了',
-	'share_ticket' => 'チケット分配',
-	'receive_ticket' => 'チケット受取',
+    'home' => 'トップページ',
+    'ticket_overview' => 'eチケット概要',
+    'own_tickets' => '所持チケット一覧',
+    'login' => 'ログイン',
+    'signup' => '会員登録',
+    'admission_ticket_reservation' => '入場チケット予約',
+    'admission_ticket_confirm' => '入場チケット予約内容確認',
+    'finalize_reservation' => '入場チケット予約完了',
+    'share_ticket' => 'チケット分配',
+    'receive_ticket' => 'チケット受取',
     'scan_qr' => 'QRコードスキャン'
 ];
 
