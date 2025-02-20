@@ -9,7 +9,6 @@ $selectedTimeSlot = $_SESSION['selectedTimeSlot'];
 $ticketQuantities = $_SESSION['ticketQuantities'] ?? [];
 $userId = $_SESSION['user_id']; // ログインしたユーザーIDを取得
 $userBirth = $_SESSION['user_birth'];
-error_log($formattedDate);
 
 // 合計枚数と合計金額を計算
 $totalQuantity = 0;
@@ -28,7 +27,6 @@ try {
 
     // 予約IDが正常に生成されたか確認
     if (empty($reservationId)) {
-        error_log('Failed to generate reservation ID.');
         throw new Exception('Failed to generate reservation ID.');
     }
 
@@ -45,10 +43,8 @@ try {
         ':reservation_timeslot' => $selectedTimeSlot,
         ':total_price' => $totalPrice,
     ])) {
-        error_log("Reservation ID: $reservationId");  // デバッグ用ログ
     } else {
         // 挿入失敗時のエラー
-        error_log('Failed to insert reservation.');
         throw new Exception('Failed to insert reservation.');
     }
 
@@ -57,7 +53,6 @@ try {
         for ($i = 0; $i < $ticket['quantity']; $i++) {
             // reservation_idが正しく渡されているか確認
             if (empty($reservationId)) {
-                error_log('Reservation ID is empty.');
                 throw new Exception('Reservation ID is empty.');
             }
 
@@ -96,10 +91,8 @@ try {
 } catch (PDOException $e) {
     // エラーハンドリング（ロールバック）
     $pdo->rollBack();
-    error_log('Reservation error: ' . $e->getMessage());
     echo '予約処理中にエラーが発生しました。';
 } catch (Exception $e) {
-    error_log('General error: ' . $e->getMessage());
     echo '予約処理中にエラーが発生しました。';
 }
 ?>

@@ -29,9 +29,6 @@ $admission_fee_types = $admission_fee_types_stmt->fetchAll(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['selectedDate'])) {
 	$selectedDate = $_POST['selectedDate'];
 
-	// ログに確認用メッセージを出力
-	error_log("選択された日付: " . print_r($selectedDate, true));
-
 	// JSON形式で返す
 	echo json_encode(['selectedDate' => $selectedDate]);
 }

@@ -32,8 +32,6 @@ $stmt = $pdo->prepare($query);
 $stmt->execute(['token' => $token]);
 $ticket = $stmt->fetch();
 
-
-error_log($token);
 if (!$ticket) {
 	die('このチケットは既に受け取られたか、有効期限が切れています。');
 }

@@ -39,7 +39,7 @@ if ($sales_day && $sales_day['is_operational'] == 1) {
 
     <div class="video-container">
         <video autoplay loop muted>
-            <source src="assets/videos/sample.mp4" type="video/mp4">
+            <source src="assets/videos/jellyfish.mp4" type="video/mp4">
         </video>
 
         <img src="assets/images/logo.png" alt="ロゴ" id="logo-square">

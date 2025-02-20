@@ -11,9 +11,6 @@ foreach ($ticketQuantities as $ticket) {
 	$totalQuantity += $ticket['quantity'];
 	$totalPrice += $ticket['ticketPrice'] * $ticket['quantity'];
 }
-
-// ログに確認用メッセージを出力
-error_log("チケット: " . print_r($ticketQuantities, true));
 ?>
 
 <body>
