@@ -30,14 +30,6 @@ if ($sales_day && $sales_day['is_operational'] == 1) {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 
 <body>
     <div id="ticket-banner-container">
@@ -247,5 +239,3 @@ if ($sales_day && $sales_day['is_operational'] == 1) {
         </ul>
     </div>
 </body>
-
-</html>

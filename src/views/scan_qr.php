@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <title>QRコードのテスト</title>
-</head>
-
 <body>
     <div id="wrapper">
         <video id="video" autoplay muted playsinline></video>
@@ -162,5 +155,3 @@
         });
     </script>
 </body>
-
-</html>

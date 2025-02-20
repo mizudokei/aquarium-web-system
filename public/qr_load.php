@@ -1,5 +1,4 @@
 <?php
-// public/qr_image.php
 $file = $_GET['file'] ?? '';
 $filepath = __DIR__ . '/../storage/qr_codes/' . basename($file);
 

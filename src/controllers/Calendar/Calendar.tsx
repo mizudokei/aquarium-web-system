@@ -35,10 +35,6 @@ export const Calendar: FC = () => {
 
 	return (
 		<chakra.div maxW="700px" p="16px">
-			{/* <chakra.button mb="16px">
-				[フォーカス遷移テストのために配置]カレンダーの前にあるフォーカス可能な要素
-			</chakra.button> */}
-
 			{/* 月切り替えボタン */}
 			<MonthSwitch
 				currentMonth={currentMonth}
@@ -47,10 +43,6 @@ export const Calendar: FC = () => {
 
 			{/* カレンダー表示 */}
 			<CalendarCells calendarData={calendarData} />
-
-			{/* <chakra.button mt="16px">
-				[フォーカス遷移テストのために配置]カレンダーの後にあるフォーカス可能な要素
-			</chakra.button> */}
 		</chakra.div>
 	);
 };

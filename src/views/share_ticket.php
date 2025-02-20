@@ -47,12 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ticket_id'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>チケット分配</title>
-</head>
 <body>
     <h1>チケット分配</h1>
     
@@ -73,4 +67,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ticket_id'])) {
         <button type="submit">分配URLを生成</button>
     </form>
 </body>
-</html>

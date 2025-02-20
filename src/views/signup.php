@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>架空水族館｜新規会員登録ページ</title>
-</head>
 <body>
     <h1>新規会員登録フォーム</h1>
     <form action="../../src/controllers/process_signup.php" method="POST">
@@ -22,4 +15,3 @@
     </form>
     <a href="../../public/index.php">ホームへ</a>
 </body>
-</html>

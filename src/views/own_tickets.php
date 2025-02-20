@@ -1,6 +1,4 @@
 <?php
-// src/views/own_tickets.php
-// session_start();
 require_once __DIR__ . '../../models/db_connect.php';
 
 // ユーザーIDをセッションから取得（ログインユーザーに紐づくチケットを表示）
@@ -38,11 +36,7 @@ $stmt->execute(['user_id' => $user_id]);
 $tickets = $stmt->fetchAll();
 ?>
 
-<!DOCTYPE html>
-<html lang="ja">
-
 <head>
-	<meta charset="UTF-8" />
 	<style>
 		.disabled {
 			opacity: 0.5;
@@ -56,26 +50,25 @@ $tickets = $stmt->fetchAll();
 </head>
 
 <body translate="no">
-	<main>
-		<div class="icon-heading-container">
-			<h2 class="icon-heading">所持チケット</h2>
-		</div>
+	<div class="icon-heading-container">
+		<h2 class="icon-heading">所持チケット</h2>
+	</div>
 
-		<div class="btn-container">
-			<button class="btn-flat-blue bind-users-ticket" onclick="openBindUsersModal()">自分が利用する</button>
-			<button class="btn-flat-blue share-ticket" onclick="openShareModal()">同伴者に分配</button>
-		</div>
+	<div class="btn-container">
+		<button class="btn-flat-blue bind-users-ticket" onclick="openBindUsersModal()">自分が利用する</button>
+		<button class="btn-flat-blue share-ticket" onclick="openShareModal()">同伴者に分配</button>
+	</div>
 
-		<div class="own-tickets-container">
-			<?php if (count($tickets) > 0): ?>
-				<?php foreach ($tickets as $ticket): ?>
-					<?php
-					$date = date_create($ticket['reservation_date']);
-					$formatted_date = date_format($date, 'Y年m月d日') . '（' . mb_substr('日月火水木金土', (int)date_format($date, 'w'), 1) . '）';
-					// チケットが紐づけられているかどうかを確認
-					$isBound = !is_null($ticket['recipient_lastname']) && !is_null($ticket['recipient_firstname']) && !is_null($ticket['recipient_email']);
-					?>
-					<a class="button button--1" onclick="openModal(
+	<div class="own-tickets-container">
+		<?php if (count($tickets) > 0): ?>
+			<?php foreach ($tickets as $ticket): ?>
+				<?php
+				$date = date_create($ticket['reservation_date']);
+				$formatted_date = date_format($date, 'Y年m月d日') . '（' . mb_substr('日月火水木金土', (int)date_format($date, 'w'), 1) . '）';
+				// チケットが紐づけられているかどうかを確認
+				$isBound = !is_null($ticket['recipient_lastname']) && !is_null($ticket['recipient_firstname']) && !is_null($ticket['recipient_email']);
+				?>
+				<a class="button button--1" onclick="openModal(
 	'<?= htmlspecialchars($ticket['ticket_id']) ?>', 
 	'<?= $formatted_date ?>', 
 	'<?= htmlspecialchars($ticket['reservation_timeslot']) ?>', 
@@ -85,24 +78,23 @@ $tickets = $stmt->fetchAll();
 	'<?= isset($ticket['recipient_firstname']) ? htmlspecialchars($ticket['recipient_firstname']) : '' ?>'
 )">
 
-						<div class="ticket-left">
-							<span class="ticket-datetime"><?= $formatted_date ?><?= htmlspecialchars($ticket['reservation_timeslot']) ?></span>
-							<span class="ticket-type-text"> <?= htmlspecialchars($ticket['ticket_type']) ?></span>
-							<span class="ticket-id"><?= htmlspecialchars($ticket['ticket_id']) ?></span>
-						</div>
-						<div class="ticket-right">
-							<?php if ($isBound): ?>
-								<span class="ticket-materials">MINE</span>
-							<?php endif; ?>
-						</div>
-						<div class="arrow"></div>
-					</a>
-				<?php endforeach; ?>
-			<?php else: ?>
-				<p>所持しているチケットはありません。</p>
-			<?php endif; ?>
-		</div>
-	</main>
+					<div class="ticket-left">
+						<span class="ticket-datetime"><?= $formatted_date ?><?= htmlspecialchars($ticket['reservation_timeslot']) ?></span>
+						<span class="ticket-type-text"> <?= htmlspecialchars($ticket['ticket_type']) ?></span>
+						<span class="ticket-id"><?= htmlspecialchars($ticket['ticket_id']) ?></span>
+					</div>
+					<div class="ticket-right">
+						<?php if ($isBound): ?>
+							<span class="ticket-materials">MINE</span>
+						<?php endif; ?>
+					</div>
+					<div class="arrow"></div>
+				</a>
+			<?php endforeach; ?>
+		<?php else: ?>
+			<p>所持しているチケットはありません。</p>
+		<?php endif; ?>
+	</div>
 
 	<div id="ticketModal" class="modal" style="display: none;">
 		<div class="modal-content">
@@ -183,5 +175,3 @@ $tickets = $stmt->fetchAll();
 		</div>
 	</div>
 </body>
-
-</html>
