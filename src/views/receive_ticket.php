@@ -56,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		]);
 
 		// 更新成功後にリダイレクト
-		header("Location: " . $_SERVER['REQUEST_URI']);
-		exit;
+		echo "<script>window.location.href='" . $_SERVER['REQUEST_URI'] . "';</script>";
+		exit;		
 	}
 }
 ?>
@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			width: 300px;
 			box-sizing: border-box;
 		}
+
 		.ticket-card img {
 			width: 100px;
 		}
@@ -81,11 +82,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<div class="icon-heading-container">
 		<h2 class="icon-heading">チケット受け取り</h2>
 	</div>
-	
+
 	<?php if (isset($error)): ?>
 		<p style="color: red;"> <?= htmlspecialchars($error) ?> </p>
 	<?php endif; ?>
-	
+
 	<?php if (!$ticket['recipient_lastname'] && !$ticket['recipient_firstname'] && !$ticket['recipient_email']): ?>
 		<form method="POST" class="form">
 			<div class="name-group">
@@ -106,9 +107,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		</form>
 
 	<?php else: ?>
-		<?php 
-			$date = date_create($ticket['reservation_date']);
-			$formatted_date = date_format($date, 'Y年m月d日') . '（' . mb_substr('日月火水木金土', (int)date_format($date, 'w'), 1) . '）';
+		<?php
+		$date = date_create($ticket['reservation_date']);
+		$formatted_date = date_format($date, 'Y年m月d日') . '（' . mb_substr('日月火水木金土', (int)date_format($date, 'w'), 1) . '）';
 		?>
 		<div class="own-tickets-container">
 			<a class="button button--1" onclick="openModal('<?= htmlspecialchars($ticket['id']) ?>', '<?= $formatted_date ?>', '<?= htmlspecialchars($ticket['reservation_timeslot']) ?>', '<?= htmlspecialchars($ticket['ticket_name']) ?>', '<?= urlencode(basename($ticket['qr_code'])) ?>')">
@@ -124,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				</div>
 				<div class="arrow"></div>
 			</a>
-	</div>
+		</div>
 	<?php endif; ?>
 
 	<div id="ticketModal" class="modal" style="display: none;">

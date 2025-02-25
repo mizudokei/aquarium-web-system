@@ -1,4 +1,6 @@
 <?php
+ob_start(); // 出力バッファリングを開始
+
 // 現在のURIを取得
 $request_uri = $_SERVER['REQUEST_URI'];
 
@@ -48,7 +50,7 @@ if (strpos($request_uri, '/') === false) {
                     <div>
                         <p class="footer__navi-heading">水族館について</p>
                         <ul class="footer__navi">
-                            <li><a href="#">蒼海水族館とは</a></li>
+                            <li><a href="/?page=login">蒼海水族館とは</a></li> <!-- 仮のログイン遷移 -->
                             <li><a href="#">営業時間・料金</a></li>
                             <li><a href="#">アクセスマップ</a></li>
                             <li><a href="#">ショップガイド</a></li>
@@ -110,3 +112,7 @@ if (strpos($request_uri, '/') === false) {
     </nav>
 
 </body>
+
+<?php
+ob_end_flush(); // バッファの内容を出力
+?>
