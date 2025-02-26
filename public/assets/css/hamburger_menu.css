@@ -1,8 +1,8 @@
-/* Third Menu Css */
+/* Third Menu SCSS */
 svg {
   height: 40px;
-  position: absolute;
   width: 40px;
+  position: absolute;
   cursor: pointer;
 }
 
@@ -19,6 +19,7 @@ svg {
 .x {
   transform: scale(0);
   transition: transform 400ms;
+  stroke-width: 5.5px;
 }
 
 .line {
@@ -31,48 +32,35 @@ svg {
   transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms, transform 500ms 200ms;
 }
 
-.x .line {
-  stroke-width: 5.5px;
-}
-
 .plate4 .x {
   transition: transform 400ms;
 }
-
 .plate4 .line {
   transform-origin: 50%;
   transition: transform 400ms 100ms;
 }
-
-.active.plate4 .line {
+.plate4.active .line {
   transition: transform 400ms;
 }
-
-.active.plate4 .line1 {
+.plate4.active .line1 {
   transform: translateX(15.7px) translateY(-3px) rotate(-45deg) scale(0.7);
 }
-
-.active.plate4 .line2 {
+.plate4.active .line2 {
   transform: translateX(-15.7px) translateY(-3px) rotate(45deg) scale(0.7);
 }
-
-.active.plate4 .line3 {
+.plate4.active .line3 {
   transform: translateY(0px) rotate(45deg) scale(0.7);
 }
-
-.active.plate4 .line4 {
+.plate4.active .line4 {
   transform: translateY(0px) rotate(-45deg) scale(0.7);
 }
-
-.active.plate4 .line5 {
+.plate4.active .line5 {
   transform: translateX(15.7px) translateY(3px) rotate(45deg) scale(0.7);
 }
-
-.active.plate4 .line6 {
+.plate4.active .line6 {
   transform: translateX(-15.7px) translateY(3px) rotate(-45deg) scale(0.7);
 }
-
-.active.plate4 .x {
+.plate4.active .x {
   transition: transform 400ms 100ms;
   transform: scale(1);
 }

@@ -135,7 +135,7 @@
     li {
         width: 25%;
         border: solid 1px #dcf2ff;
-        height: 10vh;
+        height: 15vh;
         text-align: center;
         display: flex; // flexboxに変更
         flex-direction: column; // アイコンとテキストを縦方向に並べる
@@ -146,6 +146,7 @@
         .li-icon {
             width: 24px;
             height: 24px;
+            margin-top: 8px;
             margin-bottom: 8px; // アイコンとテキストの間にスペースを追加
         }
 

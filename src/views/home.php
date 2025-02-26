@@ -44,7 +44,7 @@ if ($sales_day && $sales_day['is_operational'] == 1) {
 
         <img src="assets/images/logo.png" alt="ロゴ" id="logo-square">
 
-        <a class="scroll" href="#introduction-container">
+        <a class="scroll" href="#time-info-container">
             <span></span>
         </a>
     </div>
