@@ -24,13 +24,10 @@ function registerTicketEventHandlers() {
 		console.log("増減処理　作動");
 		console.log(ticketQuantities);
 	});
-
-	console.log("📌 イベントリスナー登録: クリックイベントをセット");
 }
 
 // チケットUIを描画する関数
 function renderTicketTypes() {
-	console.log("renderTicketTypes() が実行された");
 	$("#ticket-info").show();
 	const ticketTypesList = $("#ticket-types-list");
 	ticketTypesList.empty();
@@ -58,7 +55,6 @@ function renderTicketTypes() {
 
 
 export function getTicketQuantities() {
-	console.log("⚠ getTicketQuantities() が呼ばれた");
 	const quantities = [];
 
 	ticketTypes.forEach(ticket => {
@@ -70,7 +66,6 @@ export function getTicketQuantities() {
 			quantity: quantity
 		});
 	});
-	console.log("✔ 計算されたチケット情報:", quantities);
 	return quantities;
 }
 
